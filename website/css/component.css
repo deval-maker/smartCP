@@ -15,7 +15,7 @@ body,
 
 .st-content {
 	overflow-y: scroll;
-	background: #f3efe0;
+	background: #eaeaea;
 }
 
 .st-content,
@@ -30,7 +30,7 @@ body,
 
 .st-pusher {
 	position: relative;
-	left: 0;
+	left: 200;
 	z-index: 99;
 	height: 100%;
 	-webkit-transition: -webkit-transform 0.5s;
@@ -64,9 +64,9 @@ body,
 	left: 0;
 	z-index: 100;
 	visibility: hidden;
-	width: 300px;
+	width: 450px;
 	height: 100%;
-	background: #48a770;
+	background: rgb(235, 126, 30);
 	-webkit-transition: all 0.5s;
 	transition: all 0.5s;
 }
@@ -105,17 +105,17 @@ body,
 	padding: 1em;
 	color: rgba(0,0,0,0.4);
 	text-shadow: 0 0 1px rgba(0,0,0,0.1);
-	font-weight: 300;
-	font-size: 2em;
+	font-weight: bold;
+	font-size: 2.5em;
+	text-transform: uppercase;
 }
 
-.st-menu ul li a {
+.st-menu ul li {
 	display: block;
 	padding: 1em 1em 1em 1.2em;
 	outline: none;
 	box-shadow: inset 0 -1px rgba(0,0,0,0.2);
 	color: #f3efe0;
-	text-transform: uppercase;
 	text-shadow: 0 0 1px rgba(255,255,255,0.1);
 	letter-spacing: 1px;
 	font-weight: 400;

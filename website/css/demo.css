@@ -12,14 +12,14 @@
 
 body {
 	background: #444;
-	color: #48a770;
+	color: rgb(235, 126, 30);
 	font-weight: 300;
 	font-family: 'Lato', Calibri, Arial, sans-serif;
 }
 
 a {
 	text-decoration: none;
-	color: #48a770;
+	color: rgb(235, 126, 30);
 	outline: none;
 }
 
@@ -52,8 +52,8 @@ a:hover, a:focus {
 
 .codrops-header h1 {
 	margin: 0;
-	font-weight: 300;
-	font-size: 2.625em;
+	font-weight: bold;
+	font-size: 4em;
 	line-height: 1.3;
 }
 
