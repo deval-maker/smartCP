@@ -51,12 +51,24 @@
 				classie.add( container, effect );
 				setTimeout( function() {
 					classie.add( container, 'st-menu-open' );
-					var data = el.getAttribute( 'id' );
-					document.getElementById('shopName').innerHTML = data;
+					var shop_name = el.getAttribute( 'id' );
+					loadData(document.getElementById('shopName'),shop_name);	
+					
 				}, 25 );
 				document.addEventListener( eventtype, bodyClickFn );
 			});
 		} );
+
+		function loadData(shop_object,shop_name) {
+ 						 var xhttp = new XMLHttpRequest();
+  						xhttp.onreadystatechange = function() {
+    					if (xhttp.readyState == 4 && xhttp.status == 200) {
+      					shop_object.innerHTML = xhttp.responseText;
+    					}
+						  };
+						  xhttp.open("GET", "/?shop="+shop_name, true);
+						  xhttp.send();
+						}
 
 	}
 
