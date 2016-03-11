@@ -1,7 +1,9 @@
 import os
 import webapp2
 import jinja2
+
 #from google.appengine.ext import db
+
 
 template_dir = os.path.join(os.path.dirname(__file__),'')
 jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir),autoescape = True)
@@ -25,5 +27,13 @@ class MainPage(Handler):
     	else:
     		self.render("index.html")
 
+routes = [('/', MainPage), ]
+# for GAE and paste server
+app = webapp2.WSGIApplication( routes, debug=True)
 
-app = webapp2.WSGIApplication([('/', MainPage), ], debug=True)
+def main():
+    from paste import httpserver
+    httpserver.serve(app, host='127.0.0.1', port='8080')
+
+if __name__ == '__main__':
+    main()
