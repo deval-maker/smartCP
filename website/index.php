@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<?php include("pass.php"); ?>
+
 <html lang="en" class="no-js">
 	<head>
 		<meta charset="UTF-8" />
@@ -18,11 +20,11 @@
 				these menus will be on top of the push wrapper
 			-->
 			
-			<div class="st-menu st-effect-11">
-				<h2 id="shopName" >Shop Name</h2>
+			<div class="st-menu st-effect-11" id="shopDetailsDisp">
+				<h2 > ShopName </h2>
 				<ul>
 					<li></li>
-					<li>Current Status: Open </li>
+					<li >Current Status: Open </li>
 					<li>Opening Time:10AM <br> <br> Closing Time:10PM </li>
 				</ul>
 			</div>
@@ -39,7 +41,31 @@
 						<!-- Top Navigation -->
 						
 						<header class="codrops-header">
-							<h1>Smart CP <span>A step towards studaap </span></h1>
+							<h1>Smart CP
+<?php
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+
+$sql = "SELECT shopName FROM OfficialTimings";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo $row["shopName"];
+    }
+} else {
+    echo "No results";
+}
+$conn->close();
+?>
+
+							 <span>A step towards Smart Campus</span></h1>
 						</header>
 						<div class="main clearfix">
 							<div id="st-trigger-effects">
