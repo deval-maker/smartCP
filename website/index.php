@@ -1,5 +1,30 @@
-<!DOCTYPE html>
-<?php include("pass.php"); ?>
+<?php
+include("pass.php");
+$redLight = "#8F1920";
+$redDark = "#5D1015";
+$greenLight = "#116534";
+$greenDark = "#0B4122";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+
+$sql = "SELECT `shopName`, `currStatus` FROM `OfficialTimings`";
+$result = $conn->query($sql);
+$shopStatus=array();
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        $shopStatus[ $row["shopName"] ] = $row["currStatus"];           
+    }
+} else {
+    echo "No results";
+}
+$conn->close();
+?>
 
 <html lang="en" class="no-js">
 	<head>
@@ -41,31 +66,7 @@
 						<!-- Top Navigation -->
 						
 						<header class="codrops-header">
-							<h1>Smart CP
-<?php
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
-
-$sql = "SELECT shopName FROM OfficialTimings";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo $row["shopName"];
-    }
-} else {
-    echo "No results";
-}
-$conn->close();
-?>
-
-							 <span>A step towards Smart Campus</span></h1>
+							<h1>Smart CP <span>A step towards Smart Campus</span></h1>
 						</header>
 						<div class="main clearfix">
 							<div id="st-trigger-effects">
@@ -73,8 +74,8 @@ $conn->close();
 								<?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="1372px" height="729px" viewBox="0 0 1372 729" enable-background="new 0 0 1372 729" xml:space="preserve">
+<center><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0%" y="0%"
+	 width="90%" height="70%" viewBox="0 0 1372 729" xml:space="preserve">
 <path d="M577.72,27.74c1.09-0.4,2.222,0.39,3.312,0.52c13.51,3.86,27.31,6.75,40.738,10.82c0.762,3.27,0.53,6.67,0.61,10.01
 	c4.69-1.2,8.12-4.94,12.58-6.62c2.71,0.26,5.32,1.12,7.94,1.82c12.8,3.6,25.85,6.34,38.55,10.26c-0.13,4.12-0.142,8.25,0,12.38
 	c4.71-2.66,8.87-6.23,13.688-8.7c3.62,0.08,7.04,1.5,10.54,2.33c68.61,17.75,137.23,35.45,205.84,53.22
@@ -433,7 +434,18 @@ $conn->close();
 	c-0.182,0.399-0.53,1.188-0.7,1.59c-2.73,5.35-3.63,11.36-5.17,17.1C618.62,564.16,356.16,426.96,93.74,289.7
 	C89.57,282.79,86.14,275.42,82.75,268.1z"/>
 <a xlink:href="#" >
-	<path id="karuturi" fill="#0099CE" d="M479.76,274.77c1.37-1.02,2.75-2.07,4.33-2.76c4.54,0.3,8.21,4.07,12.9,3.57
+	<path id="karuturi" fill=
+
+<?php 
+	if($shopStatus["karuturi"] == 1){
+		// open
+		echo $greenLight;
+	}
+	else
+		echo $redLight;
+?>
+
+ d="M479.76,274.77c1.37-1.02,2.75-2.07,4.33-2.76c4.54,0.3,8.21,4.07,12.9,3.57
 		c0.648,0.81,1.438,1.47,2.34,1.98c23.59,9.48,47.27,18.75,70.729,28.52c-15.908,14.26-32.608,27.62-48.688,41.688
 		c-2.32,1.722-4.88-0.198-7.12-1.06c-27.47-12.2-55.13-23.979-82.58-36.22C447.56,298.4,463.8,286.77,479.76,274.77z"/>
 </a>
@@ -453,19 +465,49 @@ $conn->close();
 	c-0.25-2.829,2.24-4.521,4.15-6.119c2.42-1.92,4.778-3.932,7.028-6.052c-0.56-7.818-1.47-15.6-2.18-23.398
 	c-0.149-0.08-0.46-0.25-0.61-0.33c-23.46-9.77-47.14-19.04-70.729-28.52C498.43,277.05,497.64,276.39,496.99,275.58z"/>
 <a xlink:href="#" >
-	<path id="viceroy" fill="#0099CE" d="M1093.96,285.88c48.38,14.56,96.55,29.852,144.9,44.51l0.51,0.16
+	<path id="viceroy" fill=
+<?php 
+	if($shopStatus["viceroy"] == 1){
+		// open
+		echo $greenLight;
+	}
+	else
+		echo $redLight;
+?>
+
+	d="M1093.96,285.88c48.38,14.56,96.55,29.852,144.9,44.51l0.51,0.16
 		c15.35,4.932,30.819,9.53,46.21,14.33c-12.47,50.16-25.19,100.25-37.87,150.36c-39.58-14.222-78.87-29.24-118.36-43.722
 		c-6.17-2.108-12.08-5.028-18.47-6.43c-9.149-2.45-17.81-6.43-26.77-9.479c-19.15-7.182-38.37-14.16-57.49-21.41
 		C1048.93,371.35,1071.39,328.59,1093.96,285.88z"/>
 </a>
 <a xlink:href="#" >
 
-	<path id="karuturi" fill="#006699" d="M570.06,306.08c0.15,0.08,0.46,0.25,0.61,0.33c0.71,7.8,1.62,15.58,2.18,23.398
+	<path id="karuturi" fill=
+
+<?php 
+	if($shopStatus["karuturi"] == 1){
+		// open
+		echo $greenDark;
+	}
+	else
+		echo $redDark;
+?>
+ d="M570.06,306.08c0.15,0.08,0.46,0.25,0.61,0.33c0.71,7.8,1.62,15.58,2.18,23.398
 		c-2.25,2.12-4.608,4.132-7.028,6.052c-1.91,1.6-4.4,3.29-4.15,6.119c-6.24,5.921-12.92,11.341-19.26,17.149
 		c0.16,6.12,1.62,12.101,2.27,18.18c1.11,9.73,2.562,19.421,3.562,29.16l-1.51-0.51c-1.2-4.311-1.182-8.84-2.12-13.2
 		c-3.04-1.6-6.16-3.06-9.48-3.96c-2.6,2.19-5.31,4.26-7.7,6.67c-1.34-8.59-3.02-17.13-3.948-25.779
 		c-0.73-7.311-3.092-14.521-2.11-21.921C537.45,333.7,554.15,320.34,570.06,306.08z"/>
-	<path id="karuturi" fill="#006699" d="M431.41,310.72l0.26-0.229c27.45,12.24,55.11,24.02,82.58,36.22c2.24,0.86,4.8,2.78,7.12,1.061
+	<path id="karuturi" fill=
+<?php 
+	if($shopStatus["karuturi"] == 1){
+		// open
+		echo $greenDark;
+	}
+	else
+		echo $redDark;
+?>
+
+d="M431.41,310.72l0.26-0.229c27.45,12.24,55.11,24.02,82.58,36.22c2.24,0.86,4.8,2.78,7.12,1.061
 		c-0.98,7.399,1.38,14.609,2.11,21.921c0.93,8.648,2.608,17.188,3.948,25.778l-0.3,1.312c-10.51-5.25-21.33-9.84-31.92-14.92
 		c-18.32-8.182-36.38-16.92-54.78-24.932c-0.12-3.979-0.55-7.938-1.55-11.8C436.34,333.68,433.31,322.31,431.41,310.72z"/>
 
@@ -568,10 +610,21 @@ $conn->close();
 	c14.17-18.25,27.86-36.87,41.99-55.15c27.648,11.512,55.59,22.33,83.319,33.66c25.689,10.45,51.511,20.61,77.189,31.09
 	c-0.79,2.15-1.648,4.29-2.67,6.352c-3.7,5.188-6.12,11.13-9.33,16.608c-2.78,5.552-6.04,10.852-8.6,16.512
 	c-5.07,7.898-8.71,16.608-13.722,24.55c-43.05-18.55-85.93-37.49-128.92-56.17C808.92,475.05,795.55,469.83,782.71,463.5z"/>
-<path fill="#006699" d="M1084.11,435.61c-19.15-7.182-38.37-14.16-57.49-21.41c-6.34,15.28-9.81,31.64-16.49,46.79
+
+<path id="viceroy" fill=
+<?php 
+	if($shopStatus["viceroy"] == 1){
+		// open
+		echo $greenDark;
+	}
+	else
+		echo $redDark;
+?>
+ d="M1084.11,435.61c-19.15-7.182-38.37-14.16-57.49-21.41c-6.34,15.28-9.81,31.64-16.49,46.79
 	c0,0.229-0.01,0.7-0.009,0.937c27.01,10.36,53.86,21.142,80.79,31.71c-0.024,0.061-0.05,0.121-0.074,0.182
 	c0.056-0.005,0.105-0.017,0.164-0.017c0.474,0,0.838,0.164,1.106,0.413c4.513-10.848,9.031-21.692,13.473-32.564
 	c1.76-4.74,4.42-9.222,5.14-14.29c0.07-0.762,0.08-1.531,0.16-2.271C1101.73,442.639,1093.07,438.66,1084.11,435.61z"/>
+
 <path d="M1087.036,503.119c-0.695,1.702-1.391,3.404-2.088,5.104C1085.768,506.544,1086.547,504.87,1087.036,503.119z"/>
 <path fill="#006699" d="M1073.1,540.7c0.004-0.009,0.008-0.019,0.011-0.027c-0.089,0.013-0.178,0.027-0.276,0.027
 	c-0.484,0-0.856-0.172-1.126-0.431c-6.658,15.923-13.394,31.813-20.177,47.679c19.439,8.059,38.54,16.938,57.898,25.2l0.562,0.198
@@ -809,7 +862,7 @@ $conn->close();
 <line fill="none" stroke="#000000" stroke-miterlimit="10" x1="1108.583" y1="628.167" x2="1114.417" y2="630.334"/>
 <line fill="none" stroke="#000000" stroke-miterlimit="10" x1="1114.417" y1="630.334" x2="1110.333" y2="638.834"/>
 <line fill="none" stroke="#000000" stroke-miterlimit="10" x1="1110.333" y1="638.834" x2="1118.667" y2="641.834"/>
-</svg>
+</svg></center>
 
 
 							</div>
@@ -832,3 +885,11 @@ $conn->close();
 		<script src="js/sidebarEffects.js"></script>
 	</body>
 </html>
+
+
+<!-- 
+
+Light blue > "#0099CE"
+Dark blue > "#006699"
+
+  -->

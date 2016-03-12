@@ -53,7 +53,7 @@ function fetchfromMysqlDatabase(str) {
 	function init() {
 
 		var container = document.getElementById( 'st-container' ),
-			shops = Array.prototype.slice.call( document.querySelectorAll( '#st-trigger-effects > svg > a > path' ) ),
+			shops = Array.prototype.slice.call( document.querySelectorAll( '#st-trigger-effects > center > svg > a > path' ) ),
 			// event type (if mobile use touch events)
 			eventtype = mobilecheck() ? 'touchstart' : 'click',
 			resetMenu = function() {
