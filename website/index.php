@@ -44,7 +44,6 @@ $conn->close();
 				example menus 
 				these menus will be on top of the push wrapper
 			-->
-			
 			<div class="st-menu st-effect-11" id="shopDetailsDisp">
 				<h2 > ShopName </h2>
 				<ul>
@@ -75,7 +74,7 @@ $conn->close();
 <!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <center><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0%" y="0%"
-	 width="90%" height="70%" viewBox="0 0 1372 729" xml:space="preserve">
+	 width="100%" height="80%" viewBox="0 0 1372 729" xml:space="preserve">
 <path d="M577.72,27.74c1.09-0.4,2.222,0.39,3.312,0.52c13.51,3.86,27.31,6.75,40.738,10.82c0.762,3.27,0.53,6.67,0.61,10.01
 	c4.69-1.2,8.12-4.94,12.58-6.62c2.71,0.26,5.32,1.12,7.94,1.82c12.8,3.6,25.85,6.34,38.55,10.26c-0.13,4.12-0.142,8.25,0,12.38
 	c4.71-2.66,8.87-6.23,13.688-8.7c3.62,0.08,7.04,1.5,10.54,2.33c68.61,17.75,137.23,35.45,205.84,53.22
